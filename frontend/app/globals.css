@@ -41,6 +41,84 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  /* fonts */
+  --font-catamaran: var(--font-catamaran);
+  --font-noto-sans: var(--font-noto-sans);
+
+  /* colors */
+
+  /* backgrounds */
+  --color-light-background: #F7FAFC;
+  --color-dark-background: #2A3240;
+
+  /* gray shades */ 
+  --color-gray-100: #ECEFF2;
+  --color-gray-200: #D9DFE6 ;
+  --color-gray-300: #C6CED9;
+  --color-gray-400: #B3BECD;
+  --color-gray-500: #A0AEC0;
+  --color-gray-600: #666687;
+  --color-gray-700: #687484;
+  --color-gray-800: #40464D;
+  --color-gray-900: #202326;
+  --color-gray-1000: #101113;
+
+  /* blue shades */
+  --color-blue-100: #D1E6FF;
+  --color-blue-300: #74B4FF;
+  --color-blue-500: #1782FF;
+  --color-blue-700: #1268CC;
+  --color-blue-900: #0C4180;
+
+  /* light blue shades */
+  --color-light-blue-100: #DCF0FF;
+  --color-light-blue-300: #96D3FF;
+  --color-light-blue-500: #50B5FF;
+  --color-light-blue-700: #4091CC;
+  --color-light-blue-900: #285B80;
+
+  /* purple shades */
+  --color-purple-100: #F2E5FF;
+  --color-purple-300: #D6BCFA;
+  --color-purple-500: #A461D8;
+  --color-purple-700: #734497;
+  --color-purple-900: #422756;
+
+  /* yellow shades */
+  --color-yellow-100: #FFEEC6;
+  --color-yellow-300: #FFD67B;
+  --color-yellow-500: #FFC542;
+  --color-yellow-700: #E6B13B;
+  --color-yellow-900: #997628;
+
+  /* orange shades */ 
+  --color-orange-100: #FFEADB;
+  --color-orange-300: #FFC192;
+  --color-orange-500: #FF974A;
+  --color-orange-700: #E68843;
+  --color-orange-900: #B36A34;
+
+  /* green shades */
+  --color-green-100: #D8F7EA;
+  --color-green-300: #9EEACC;
+  --color-green-500: #3DD598;
+  --color-green-700: #31AA7A;
+  --color-green-900: #12402E;
+
+  /* light green shades */
+  --color-light-green-100: #12402E;
+  --color-light-green-300: #B4DC8A;
+  --color-light-green-500: #82C43C;
+  --color-light-green-700: #5B892A;
+  --color-light-green-900: #41621E;
+
+  /* red shades */
+  --color-red-100: #FEDEDE;
+  --color-red-300: #FD8C8C;
+  --color-red-500: #FC5A5A;
+  --color-red-700: #E35151;
+  --color-red-900: #973636;
 }
 
 :root {

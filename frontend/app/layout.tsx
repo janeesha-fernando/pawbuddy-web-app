@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Catamaran, Noto_Sans } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const catamaran = Catamaran({
   subsets: ["latin"],
-});
+  display: "swap",
+  variable: "--font-catamaran",
+})
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const noto_sans = Noto_Sans({
   subsets: ["latin"],
-});
+  display: "swap",
+  variable: "--font-noto-sans",
+})
 
 export const metadata: Metadata = {
   title: "PawBuddy",
@@ -25,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${catamaran.variable} ${noto_sans.variable} antialiased`}
       >
         {children}
       </body>
