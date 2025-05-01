@@ -1,5 +1,6 @@
 import React from 'react'
 import { Button } from '../ui/button'
+import Link from 'next/link'
 
 export default function Onboarding() {
   return (
@@ -18,9 +19,9 @@ export default function Onboarding() {
             </div>
         </div>
         {/* Get Started Button */}
-        <div className='w-full flex items-center justify-center px-6 py-10'>
+        <Link href={'/auth/login'} className='w-full flex items-center justify-center px-6 py-10'>
             <Button className='w-full h-14 bg-blue-500 hover:bg-blue-400 rounded-2xl text-base font-noto-sans'>Get Started</Button>
-        </div>
+        </Link>
     </div>
   )
 }
