@@ -3,6 +3,22 @@
 
 @custom-variant dark (&:is(.dark *));
 
+/* Add animation utilities */
+@layer utilities {
+  @keyframes caret-blink {
+    0%, 70%, 100% {
+      opacity: 1;
+    }
+    20%, 50% {
+      opacity: 0;
+    }
+  }
+
+  .animate-caret-blink {
+    animation: caret-blink 1.25s ease-out infinite;
+  }
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -119,6 +135,7 @@
   --color-red-500: #FC5A5A;
   --color-red-700: #E35151;
   --color-red-900: #973636;
+
 }
 
 :root {

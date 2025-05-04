@@ -14,14 +14,26 @@ import { Input} from '../ui/input'
 import { Button } from '../ui/button';
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
+import { useRouter } from 'next/navigation';
 
 const formSchema = z.object({
-  email: z.string().min(1,{message: 'Email is required'}).email({message: "Enter a valid email address"}),
-  password: z.string().min(1,{message:'Password is required'}),
+  email: 
+    z.string().
+    min(1,{message: 'Email is required'}).
+    email({message: "Enter a valid email address"}),
+  password: 
+    z.string().
+    min(1,{message:'Password is required'}).
+    min(8,{message:'Password must be at least 8 characters long'})
+    .refine((password) => /[A-Z]/.test(password),{message: 'Password must contain at least one uppercase letter'})
+    .refine((password) => /[a-z]/.test(password),{message: 'Password must contain at least one lowercase letter'})
+    .refine((password) => /[0-9]/.test(password),{message: 'Password must contain at least one number'})
+    .refine((password) => /[!@#$%^&*]/.test(password),{message: 'Password must contain at least one special character'}), 
 })
 
-export default function LoginForm() {
-  const [showPassword, setShowPassword] = useState(false)
+export default function CreateAccountForm() {
+  const [showPassword, setShowPassword] = useState(false);
+  const router = useRouter();
   
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -38,7 +50,8 @@ export default function LoginForm() {
   }
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
-      console.log(values)
+    console.log(values);
+    router.push('/auth/create-account/email-validation')
   }
 
   return (
@@ -76,7 +89,7 @@ export default function LoginForm() {
               </FormItem>
             )}
             />
-            <Button type='submit' className='w-full mt-4 p-4 bg-blue-500 rounded-md text-base'>Login</Button>
+            <Button type='submit' className='w-full mt-4 p-4 bg-blue-500 rounded-md text-base'>Create Account</Button>
         </form>
       </Form>
     </div>
