@@ -60,7 +60,6 @@ export default function ResetPasswordForm() {
         description: 'Your password has been changes successfully.',
         duration:2000,
         style:{
-          width: '80%',
           borderLeft: '4px solid #0CAC42',
           fontSize: '14px',
         }
