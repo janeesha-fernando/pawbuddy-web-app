@@ -18,6 +18,7 @@ import {
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import { toast } from "sonner";
 
 const formSchema = z.object({
   otp: z.string().min(1,{message: "Validation code is required."}).min(6, { message: "OTP must be 6 digits" })
@@ -38,7 +39,16 @@ export function OTPForm() {
     console.log(values)
     
     if(pathname === "/auth/create-account/email-validation") {
+      toast('Success',{
+        description: 'Your account has been successfully created!',
+        duration:2000,
+        style:{
+          borderLeft: '4px solid #0CAC42',
+          fontSize: '14px',
+        }
+      })
       router.push("/dashboard");
+
     } else {
       router.push("/auth/forgot-password/reset-password");
     }
