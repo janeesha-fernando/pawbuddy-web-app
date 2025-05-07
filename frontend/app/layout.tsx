@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Catamaran, Noto_Sans } from "next/font/google";
 import "./globals.css";
+import { Toaster } from "sonner";
 
 const catamaran = Catamaran({
   subsets: ["latin"],
@@ -30,6 +31,7 @@ export default function RootLayout({
         className={`${catamaran.variable} ${noto_sans.variable} antialiased`}
       >
         {children}
+        <Toaster />
       </body>
     </html>
   );
