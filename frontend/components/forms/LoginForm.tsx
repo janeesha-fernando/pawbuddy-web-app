@@ -73,8 +73,8 @@ export default function LoginForm() {
                     <FormControl>
                       <Input placeholder='Password' type={showPassword? 'text' : 'password'} {... field} className='text-base border border-gray-200 p-4' />
                     </FormControl>
-                    <Button type='button' onClick={togglePasswordVisibility} className='absolute right-1 top-1/2 -translate-y-1/2 bg-transparent hover:bg-transparent'>
-                      {showPassword? <FaRegEyeSlash className='text-gray-500 text-lg' /> : <MdOutlineRemoveRedEye className='text-gray-500 text-lg' />}
+                    <Button type='button' onClick={togglePasswordVisibility} className='absolute right-1 top-1/2 -translate-y-1/2 bg-transparent hover:bg-transparent shadow-none'>
+                      {showPassword? <FaRegEyeSlash className='text-gray-500 text-xl' /> : <MdOutlineRemoveRedEye className='text-gray-500 text-xl' />}
                     </Button>
                   </div>  
                   <FormMessage />

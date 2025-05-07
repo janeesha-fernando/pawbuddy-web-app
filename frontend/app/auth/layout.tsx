@@ -10,7 +10,7 @@ export default function AuthLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className='relative w-full h-screen bg-gradient-to-t from-gray-100/0 to-gray-100 overflow-hidden'>
+    <div className='relative md:hidden w-full h-screen bg-gradient-to-t from-gray-100/0 to-gray-100 overflow-hidden'>
         {/* Background Image  */}
         <div className='mt-10 absolute inset-0 z-0'>
             <Image src={OnboardingImage} alt='onboarding' layout='fill' className='object-cover' />
