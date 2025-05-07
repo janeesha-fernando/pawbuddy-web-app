@@ -17,13 +17,16 @@ import {
 } from "@/components/ui/input-otp"
 import { Button } from "../ui/button";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 const formSchema = z.object({
   otp: z.string().min(1,{message: "Validation code is required."}).min(6, { message: "OTP must be 6 digits" })
 })
 
-export function EmailValidationForm() {
+export function OTPForm() {
   const router = useRouter();
+  const pathname = usePathname();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -33,7 +36,13 @@ export function EmailValidationForm() {
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
     console.log(values)
-    router.push('/dashboard')
+    
+    if(pathname === "/auth/create-account/email-validation") {
+      router.push("/dashboard");
+    } else {
+      router.push("/auth/forgot-password/reset-password");
+    }
+
   }
 
   return (
@@ -61,7 +70,7 @@ export function EmailValidationForm() {
             </FormItem>
             )}
           />
-          <Button type='submit' className='w-full mt-4 p-4 bg-blue-500 rounded-md text-base'>Confirm</Button>
+          <Button type='submit' className='w-full mt-4 p-4 bg-blue-500 rounded-md text-base'>Verify</Button>
         </form>
       </Form>
     </div>

@@ -14,6 +14,8 @@ import { Input} from '../ui/input'
 import { Button } from '../ui/button';
 import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { FaRegEyeSlash } from "react-icons/fa";
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const formSchema = z.object({
   email: z.string().min(1,{message: 'Email is required'}).email({message: "Enter a valid email address"}),
@@ -21,6 +23,7 @@ const formSchema = z.object({
 })
 
 export default function LoginForm() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false)
   
   const form = useForm<z.infer<typeof formSchema>>({
@@ -39,6 +42,7 @@ export default function LoginForm() {
 
   const onSubmit = (values: z.infer<typeof formSchema>) => {
       console.log(values)
+      router.push('/dashboard')
   }
 
   return (
@@ -58,25 +62,28 @@ export default function LoginForm() {
               </FormItem>
             )}
            />
-           {/* Password */}
-            <FormField 
-            control={form.control}
-            name='password'
-            render={({field}) => (
-              <FormItem>
-                <div className='relative'>
-                  <FormControl>
-                    <Input placeholder='Password' type={showPassword? 'text' : 'password'} {... field} className='text-base border border-gray-200 p-4' />
-                  </FormControl>
-                  <Button onClick={togglePasswordVisibility} className='absolute right-1 top-1/2 -translate-y-1/2 bg-transparent hover:bg-transparent'>
-                   {showPassword? <FaRegEyeSlash className='text-gray-500 text-lg' /> : <MdOutlineRemoveRedEye className='text-gray-500 text-lg' />}
-                  </Button>
-                </div>  
-                <FormMessage />
-              </FormItem>
-            )}
-            />
-            <Button type='submit' className='w-full mt-4 p-4 bg-blue-500 rounded-md text-base'>Login</Button>
+           <div className='flex flex-col space-y-4'>
+              {/* Password */}
+              <FormField 
+              control={form.control}
+              name='password'
+              render={({field}) => (
+                <FormItem>
+                  <div className='relative'>
+                    <FormControl>
+                      <Input placeholder='Password' type={showPassword? 'text' : 'password'} {... field} className='text-base border border-gray-200 p-4' />
+                    </FormControl>
+                    <Button type='button' onClick={togglePasswordVisibility} className='absolute right-1 top-1/2 -translate-y-1/2 bg-transparent hover:bg-transparent'>
+                      {showPassword? <FaRegEyeSlash className='text-gray-500 text-lg' /> : <MdOutlineRemoveRedEye className='text-gray-500 text-lg' />}
+                    </Button>
+                  </div>  
+                  <FormMessage />
+                </FormItem>
+              )}
+              />
+              <Link href={'/auth/forgot-password'} className='text-sm text-blue-500 text-right'>Forget Password ?</Link>
+           </div>
+            <Button type='submit' className='w-full p-4 bg-blue-500 rounded-md text-base'>Login</Button>
         </form>
       </Form>
     </div>
